@@ -40,7 +40,8 @@
     });
     let path = 'assets/tinydesk_big_trim4_with_sides.splat';
     viewer.addSplatScene(path, {
-      'streamView': true
+      'streamView': true,
+      'scale': [0.25, 0.25, 0.25],
     })
     .then(() => {
         viewer.start();
