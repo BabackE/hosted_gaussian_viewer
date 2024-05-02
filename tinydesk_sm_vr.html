@@ -33,7 +33,7 @@
     const viewer = new GaussianSplats3D.Viewer({
       'initialCameraLookAt': [4.69, -3.08, 8.47],
       'initialCameraPosition': [6.69, -3.02, 10.46],
-      'cameraUp': [0, -1, 0.0],
+      'cameraUp': [0, 1, 0.0],
       'webXRMode': GaussianSplats3D.WebXRMode.VR,
       'sharedMemoryForWorkers': false,
       'gpuAcceleratedSort': false
@@ -41,8 +41,9 @@
     let path = 'assets/tinydesk_big_trim5_2desks.splat';
     viewer.addSplatScene(path, {
       'streamView': true,
+      'rotation': new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI),
       'scale': [0.25, 0.25, 0.25],
-      'position': [4.0, -2.5, 9.0]
+      'position': [0.0, 0.0, 0.0]
     })
     .then(() => {
         viewer.start();
