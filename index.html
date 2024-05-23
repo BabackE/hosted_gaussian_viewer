@@ -611,35 +611,22 @@
         "bono_0900", "bono_0890", "bono_11149", "bono_0215", "bono_12064"];
 
         const root = document.getElementById("stereo_list");
-        let rowElement = 0;
+        
+        // create the rows of demos
+        let rows = [];
         let currentRow = null;
         for (i=0; i< stereo_demo_list.length; i++)
         {
-          if (rowElement == 0) {
+          if (i % 3 == 0) {
             currentRow = getNewDemoRow();
+            rows.appendChild(currentRow);            
           }
           const thisDemo = getStereoDemoItem(stereo_demo_list[i]);
           currentRow.appendChild(thisDemo);
-          
-          rowElement++;
-          if (rowElement == 3)
-          {
-            root.appendChild(currentRow);
-            rowElement = 0;
-          }
         }
-          const url = new URL(window.location.href);
-          const searchParams = new URLSearchParams(url.search);
-          const stereoImageSrc = searchParams.get('stereo') || 'assets/images/default_stereo.jpg';
-
-          // Create the <stereo-img> element
-          const stereoImg = document.createElement('stereo-img');
-          
-          // Append the element first to ensure it's in the DOM and upgraded
-          document.getElementById('image-container').appendChild(stereoImg);
-          
-          // Then set the 'src' attribute
-          stereoImg.setAttribute('src', stereoImageSrc);
+        // insert them all into dom
+        for(i = 0; i < rows.length; i++)
+          root.appendChild(rows[i])
       });
 
   </script>
