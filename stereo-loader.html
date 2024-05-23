@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stereo Image Viewer</title>
     <script type="module">
         // Ensure the custom element is defined before any script attempts to use it
@@ -15,12 +13,11 @@
 
                 // Select the container and use insertAdjacentHTML to create the element
                 const container = document.getElementById('image-container');
-                container.insertAdjacentHTML('afterbegin', `<stereo-img src="${stereoImageSrc}"></stereo-img>`);
+                container.insertAdjacentHTML('afterbegin', `<stereo-img src="${stereoImageSrc}" style='height: 495.75px;'></stereo-img>`);
             });
         }).catch(error => console.error('Error loading the stereo-img module:', error));
     </script>
 </head>
-<body>
-    <div id="image-container"></div>
+<body id="image-container">
 </body>
 </html>
