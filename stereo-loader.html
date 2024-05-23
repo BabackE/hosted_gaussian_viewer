@@ -4,31 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stereo Image Viewer</title>
-</head>
-<body>
-    <div id="image-container"></div>
-
-    <script>
-        // Dynamically import the module that defines the custom element
+    <script type="module">
+        // Ensure the custom element is defined before any script attempts to use it
         import('https://stereo-img.steren.fr/stereo-img.js').then(() => {
-            // Once the module is loaded, execute the rest of the script
-            document.addEventListener('DOMContentLoaded', function() {
+            // Wait for the custom elements definitions to be upgraded
+            customElements.whenDefined('stereo-img').then(() => {
                 const url = new URL(window.location.href);
                 const searchParams = new URLSearchParams(url.search);
                 const stereoImageSrc = searchParams.get('stereo') || 'assets/images/swift10fps_0203_left_right_stereo.jpg';
 
-                // Create the <stereo-img> element
-                const stereoImg = document.createElement('stereo-img');
-                
-                // Append the element first to ensure it's in the DOM and upgraded
-                document.getElementById('image-container').appendChild(stereoImg);
-                
-                // Then set the 'src' attribute
-                stereoImg.setAttribute('src', stereoImageSrc);
+                // Select the container and use insertAdjacentHTML to create the element
+                const container = document.getElementById('image-container');
+                container.insertAdjacentHTML('afterbegin', `<stereo-img src="${stereoImageSrc}"></stereo-img>`);
             });
-        }).catch(error => {
-            console.error('Error loading the stereo-img module:', error);
-        });
+        }).catch(error => console.error('Error loading the stereo-img module:', error));
     </script>
+</head>
+<body>
+    <div id="image-container"></div>
 </body>
 </html>
