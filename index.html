@@ -556,6 +556,9 @@
     function openDemo(demoName) {
       window.location = demoName + '.html';
     }
+    function openStereo(demoName) {
+      window.location = demoName + '.html';
+    }
     function reset() {
       window.location = 'index.html';
     }
@@ -585,22 +588,32 @@
         </div>
         <div style="text-align:center;">
           <div class="content-row" style="max-width: 800px; margin:auto; display:flex; align-items: center; justify-content: center;">
-            <a href="taylor.html">
-              <div class="demo-scene-panel">
+              <div class="demo-scene-panel" onclick="openStereo('swift10fps_0203')">
                 <img src="assets/images/swift10fps_0203.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Taylor Swift Stereo 1</span>
+                <span class="small-title">Taylor Swift Stereo 203</span>
               </div>
-            </a>
-            <a href="taylor2.html">
-              <div class="demo-scene-panel">
-                <img src="assets/images/swift10fps_0203.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Taylor Swift Stereo 2</span>
+              <div class="demo-scene-panel" onclick="openStereo('swift10fps_0117')">
+                <img src="assets/images/swift10fps_0117.jpg" class="demo-scene-panel-image">
+                <span class="small-title">Taylor Swift Stereo 117</span>
               </div>
-            </a>
-            <div class="demo-scene-panel" onclick="openDemo('tinydesk_bg')">
-              <img src="assets/images/bonsai.png" class="demo-scene-panel-image">
-              <span class="small-title">Tiny Desk</span>
+              <div class="demo-scene-panel" onclick="openStereo('swift10fps_1732')">
+                <img src="assets/images/swift10fps_1732.jpg" class="demo-scene-panel-image">
+                <span class="small-title">Taylor Swift Stereo 1732</span>
+              </div>
             </div>
+            <div class="content-row" style="max-width: 800px; margin:auto; display:flex; align-items: center; justify-content: center;">
+              <div class="demo-scene-panel" onclick="openStereo('swift10fps_11950')">
+                <img src="assets/images/swift10fps_11950.jpg" class="demo-scene-panel-image">
+                <span class="small-title">Taylor Swift Stereo 11950</span>
+              </div>
+              <div class="demo-scene-panel" onclick="openStereo('swift10fps_14730')">
+                <img src="assets/images/swift10fps_14730.jpg" class="demo-scene-panel-image">
+                <span class="small-title">Taylor Swift Stereo 14730</span>
+              </div>
+              <div class="demo-scene-panel" onclick="openDemo('tinydesk_bg')">
+                <img src="assets/images/bonsai.png" class="demo-scene-panel-image">
+                <span class="small-title">Tiny Desk</span>
+              </div>
           </div>
         </div>
     </div>
