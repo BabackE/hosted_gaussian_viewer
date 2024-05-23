@@ -613,7 +613,7 @@
         const root = document.getElementById("stereo_list");
         const rowElement = 0;
         const currentRow = null;
-        for (i=0; i< len(stereo_demo_list); i++)
+        for (i=0; i< stereo_demo_list.length; i++)
         {
           if (rowElement == 0) {
             currentRow = getNewDemoRow();
@@ -663,22 +663,31 @@
     <div class="header-content-container">
         <div class="title">
           <div style="margin: auto; font-size: 14pt;">
-            Demo scenes
+            Stereo scenes
           </div>
         </div>
-        <div style="text-align:center;" id="stereo_list">
-        </div>
-        <div style="text-align:center;" id="splat_list">
-          <div class="content-row" style="max-width: 800px; margin:auto; display:flex; align-items: center; justify-content: center;">
-            <div class="demo-scene-panel" onclick="openDemo('tinydesk_bg')">
-              <img src="assets/images/bonsai.png" class="demo-scene-panel-image">
-              <span class="small-title">Tiny Desk Splat</span>
-            </div>
-          </div>            
-        </div>
-      </div>
+        <div style="text-align:center;" id="stereo_list"></div>
+    </div>
     <br>
     <div class="header-content-container">
+      <div class="title">
+        <div style="margin: auto; font-size: 14pt;">
+          Splat scenes
+        </div>
+      </div>
+      <div style="text-align:center;" id="stereo_list">
+      </div>
+      <div style="text-align:center;" id="splat_list">
+        <div class="content-row" style="max-width: 800px; margin:auto; display:flex; align-items: center; justify-content: center;">
+          <div class="demo-scene-panel" onclick="openDemo('tinydesk_bg')">
+            <img src="assets/images/bonsai.png" class="demo-scene-panel-image">
+            <span class="small-title">Tiny Desk Splat</span>
+          </div>
+        </div>            
+      </div>
+    </div>
+    <br>
+  <div class="header-content-container">
         <div class="content-row">
             <div id ="view-panel" class="splat-panel" style="height:330px;">
                 <br>
