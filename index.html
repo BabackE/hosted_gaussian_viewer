@@ -619,7 +619,7 @@
         {
           if (i % 3 == 0) {
             currentRow = getNewDemoRow();
-            rows.appendChild(currentRow);            
+            rows.push(currentRow); 
           }
           const thisDemo = getStereoDemoItem(stereo_demo_list[i]);
           currentRow.appendChild(thisDemo);
