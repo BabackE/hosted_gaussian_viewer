@@ -11,7 +11,7 @@
             customElements.whenDefined('stereo-img').then(() => {
                 const url = new URL(window.location.href);
                 const searchParams = new URLSearchParams(url.search);
-                const stereoImageSrc = searchParams.get('stereo') || 'assets/images/swift10fps_0203_left_right_stereo.jpg';
+                const stereoImageSrc = 'assets/images/' + searchParams.get('stereo') + "_left_right_stereo.jpg" || 'assets/images/swift10fps_0203_left_right_stereo.jpg';
 
                 // Select the container and use insertAdjacentHTML to create the element
                 const container = document.getElementById('image-container');
