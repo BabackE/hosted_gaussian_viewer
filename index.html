@@ -557,11 +557,91 @@
       window.location = demoName + '.html';
     }
     function openStereo(demoName) {
-      window.location = demoName + '.html';
+      window.location = "stereo-loader.html?stereo=" + demoName;
     }
     function reset() {
       window.location = 'index.html';
     }
+  </script>
+  <script>
+      function getNewDemoRow() {
+          // Create the div element
+          const divElement = document.createElement('div');
+
+          // Add class to the div
+          divElement.classList.add('content-row');
+
+          // Set multiple CSS styles
+          divElement.style.maxWidth = '800px';
+          divElement.style.margin = 'auto';
+          divElement.style.display = 'flex';
+          divElement.style.alignItems = 'center';
+          divElement.style.justifyContent = 'center';
+          return divElement;        
+      }
+
+      function getStereoDemoItem(id) {
+          // Create the parent div element
+          const parentDiv = document.createElement('div');
+          parentDiv.className = 'demo-scene-panel';
+
+          // Add an onclick event handler to the parent div
+          parentDiv.onclick = function() {
+              openStereo(id);
+          };
+
+          // Create the img element and set its attributes
+          const imgElement = document.createElement('img');
+          imgElement.src = 'assets/images/' + id + '.jpg';
+          imgElement.className = 'demo-scene-panel-image';
+
+          // Create the span element and set its content and class
+          const spanElement = document.createElement('span');
+          spanElement.className = 'small-title';
+          spanElement.textContent = id + " (Stereo)"
+
+          // Append the img and span elements to the parent div
+          parentDiv.appendChild(imgElement);
+          parentDiv.appendChild(spanElement);        
+
+          return parentDiv;
+      }
+      document.addEventListener('DOMContentLoaded', function() {
+        const stereo_demo_list = ["swift10fps_0203", "swift10fps_0117", "swift10fps_1732", "swift10fps_11950", "swift10fps_14730", "bono_0420",
+        "bono_0900", "bono_0890", "bono_11149", "bono_0215", "bono_12064"];
+
+        const root = document.getElementById("stereo_list");
+        const rowElement = 0;
+        const currentRow = null;
+        for (i=0; i< len(stereo_demo_list); i++)
+        {
+          if (rowElement == 0) {
+            currentRow = getNewDemoRow();
+          }
+          const thisDemo = getStereoDemoItem(stereo_demo_list[i]);
+          currentRow.appendChild(thisDemo);
+          
+          rowElement++;
+          if (rowElement == 2)
+          {
+            root.appendChild(currentRow);
+            rowElement = 0;
+          }
+        }
+          const url = new URL(window.location.href);
+          const searchParams = new URLSearchParams(url.search);
+          const stereoImageSrc = searchParams.get('stereo') || 'assets/images/default_stereo.jpg';
+
+          // Create the <stereo-img> element
+          const stereoImg = document.createElement('stereo-img');
+          
+          // Append the element first to ensure it's in the DOM and upgraded
+          document.getElementById('image-container').appendChild(stereoImg);
+          
+          // Then set the 'src' attribute
+          stereoImg.setAttribute('src', stereoImageSrc);
+      });
+
   </script>
 </head>
 
@@ -586,65 +666,17 @@
             Demo scenes
           </div>
         </div>
-        <div style="text-align:center;">
+        <div style="text-align:center;" id="stereo_list">
+        </div>
+        <div style="text-align:center;" id="splat_list">
           <div class="content-row" style="max-width: 800px; margin:auto; display:flex; align-items: center; justify-content: center;">
-              <div class="demo-scene-panel" onclick="openStereo('swift10fps_0203')">
-                <img src="assets/images/swift10fps_0203.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Taylor Swift Stereo 203</span>
-              </div>
-              <div class="demo-scene-panel" onclick="openStereo('swift10fps_0117')">
-                <img src="assets/images/swift10fps_0117.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Taylor Swift Stereo 117</span>
-              </div>
-              <div class="demo-scene-panel" onclick="openStereo('swift10fps_1732')">
-                <img src="assets/images/swift10fps_1732.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Taylor Swift Stereo 1732</span>
-              </div>
+            <div class="demo-scene-panel" onclick="openDemo('tinydesk_bg')">
+              <img src="assets/images/bonsai.png" class="demo-scene-panel-image">
+              <span class="small-title">Tiny Desk Splat</span>
             </div>
-            <div class="content-row" style="max-width: 800px; margin:auto; display:flex; align-items: center; justify-content: center;">
-              <div class="demo-scene-panel" onclick="openStereo('swift10fps_11950')">
-                <img src="assets/images/swift10fps_11950.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Taylor Swift Stereo 11950</span>
-              </div>
-              <div class="demo-scene-panel" onclick="openStereo('swift10fps_14730')">
-                <img src="assets/images/swift10fps_14730.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Taylor Swift Stereo 14730</span>
-              </div>
-              <div class="demo-scene-panel" onclick="openStereo('bono_0420')">
-                <img src="assets/images/bono_0420.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Bono+Edge Stereo 420</span>
-              </div>
-            </div>
-            <div class="content-row" style="max-width: 800px; margin:auto; display:flex; align-items: center; justify-content: center;">
-              <div class="demo-scene-panel" onclick="openStereo('bono_0900')">
-                <img src="assets/images/bono_0900.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Bono+Edge Stereo 900</span>
-              </div>
-              <div class="demo-scene-panel" onclick="openStereo('bono_0890')">
-                <img src="assets/images/bono_0890.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Bono+Edge Stereo 890</span>
-              </div>
-              <div class="demo-scene-panel" onclick="openStereo('bono_11149')">
-                <img src="assets/images/bono_11149.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Bono+Edge Stereo 11149</span>
-              </div>
-            </div>
-            <div class="content-row" style="max-width: 800px; margin:auto; display:flex; align-items: center; justify-content: center;">
-              <div class="demo-scene-panel" onclick="openStereo('bono_0215')">
-                <img src="assets/images/bono_0215.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Bono+Edge Stereo 215</span>
-              </div>
-              <div class="demo-scene-panel" onclick="openStereo('bono_12064')">
-                <img src="assets/images/bono_12064.jpg" class="demo-scene-panel-image">
-                <span class="small-title">Bono+Edge Stereo 12064</span>
-              </div>
-              <div class="demo-scene-panel" onclick="openDemo('tinydesk_bg')">
-                <img src="assets/images/bonsai.png" class="demo-scene-panel-image">
-                <span class="small-title">Tiny Desk Splat</span>
-              </div>
           </div>            
         </div>
-    </div>
+      </div>
     <br>
     <div class="header-content-container">
         <div class="content-row">
