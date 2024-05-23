@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stereo Image Viewer</title>
+    <script type="module" src="https://stereo-img.steren.fr/stereo-img.js"></script>
+</head>
+<body>
+    <div id="stereo-container"></div>
+
+    <script>
+        // Wait for the DOM to fully load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create a URL object based on the current location
+            const url = new URL(window.location.href);
+            const searchParams = new URLSearchParams(url.search);
+
+            // Get the stereo parameter value or set a default
+            const stereoImageSrc = searchParams.get('stereo') || 'assets/images/swift10fps_0203_left_right_stereo.jpg';
+
+            // Create the <stereo-img> element
+            const stereoImg = document.createElement('stereo-img');
+            stereoImg.setAttribute('src', stereoImageSrc);
+
+            // Append the <stereo-img> element to the desired container
+            document.getElementById('stereo-container').appendChild(stereoImg);
+        });
+    </script>
+</body>
+</html>
