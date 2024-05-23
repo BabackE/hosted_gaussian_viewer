@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stereo Image Viewer</title>
-    <script type="module" src="https://stereo-img.steren.fr/stereo-img.js"></script>
 </head>
 <body>
-    <div id="stereo-container"></div>
+    <div id="image-container"></div>
 
     <script>
-        // Wait for the DOM to fully load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Create a URL object based on the current location
-            const url = new URL(window.location.href);
-            const searchParams = new URLSearchParams(url.search);
+        // Dynamically import the module that defines the custom element
+        import('https://stereo-img.steren.fr/stereo-img.js').then(() => {
+            // Once the module is loaded, execute the rest of the script
+            document.addEventListener('DOMContentLoaded', function() {
+                const url = new URL(window.location.href);
+                const searchParams = new URLSearchParams(url.search);
+                const stereoImageSrc = searchParams.get('stereo') || 'assets/images/swift10fps_0203_left_right_stereo.jpg';
 
-            // Get the stereo parameter value or set a default
-            const stereoImageSrc = searchParams.get('stereo') || 'assets/images/swift10fps_0203_left_right_stereo.jpg';
-
-            // Create the <stereo-img> element
-            const stereoImg = document.createElement('stereo-img');
-            stereoImg.setAttribute('src', stereoImageSrc);
-
-            // Append the <stereo-img> element to the desired container
-            document.getElementById('stereo-container').appendChild(stereoImg);
+                // Create the <stereo-img> element
+                const stereoImg = document.createElement('stereo-img');
+                
+                // Append the element first to ensure it's in the DOM and upgraded
+                document.getElementById('image-container').appendChild(stereoImg);
+                
+                // Then set the 'src' attribute
+                stereoImg.setAttribute('src', stereoImageSrc);
+            });
+        }).catch(error => {
+            console.error('Error loading the stereo-img module:', error);
         });
     </script>
 </body>
