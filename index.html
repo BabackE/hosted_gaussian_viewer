@@ -611,7 +611,7 @@
         "bono_0900", "bono_0890", "bono_11149", "bono_0215", "bono_12064"];
 
         const root = document.getElementById("stereo_list");
-        const rowElement = 0;
+        let rowElement = 0;
         let currentRow = null;
         for (i=0; i< stereo_demo_list.length; i++)
         {
@@ -672,7 +672,7 @@
     <div class="header-content-container">
       <div class="title">
         <div style="margin: auto; font-size: 14pt;">
-          Splat scenes
+          Splats
         </div>
       </div>
       <div style="text-align:center;" id="stereo_list">
