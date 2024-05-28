@@ -630,6 +630,7 @@
         "bono_0420","bono_0900", "bono_0890", "bono_11149", "bono_0215", "bono_12064"];
         const stereo_demo_list_right = ["swift10fps_0203R", "swift10fps_0117R", "swift10fps_1732R", "swift10fps_11950R", "swift10fps_14730R",
         "bono_0420R","bono_0900R", "bono_0890R", "bono_11149R", "bono_0215R", "bono_12064R"];
+        const stereo_video_list = ["voAS8KQ27ZE"]
 
         const left_dominant_root = document.getElementById("stereo_list_left");
         insertDemosIntoDOM(stereo_demo_list_left, left_dominant_root)
@@ -637,6 +638,7 @@
         const right_dominant_root = document.getElementById("stereo_list_right");
         insertDemosIntoDOM(stereo_demo_list_right, right_dominant_root)
       });
+
 
   </script>
 </head>
@@ -657,6 +659,21 @@
     </div>
     <br>
     <div class="header-content-container">
+      <div class="title">
+        <div style="margin: auto; font-size: 14pt;">
+          YouTube Scenes
+        </div>
+      </div>
+      <div style="text-align:center;" id="stereo_video_list">
+        <a href="https://www.youtube.com/watch?v=voAS8KQ27ZE">
+          <div class="demo-scene-panel">
+            <img src="assets/images/swift10fps_0203.jpg" class="demo-scene-panel-image">
+            <span class="small-title">Taylor stereo video</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="header-content-container">
         <div class="title">
           <div style="margin: auto; font-size: 14pt;">
             Left Dominant stereo scenes
@@ -665,7 +682,6 @@
         <div style="text-align:center;" id="stereo_list_left"></div>
     </div>
     <br>
-
     <div class="header-content-container">
       <div class="title">
         <div style="margin: auto; font-size: 14pt;">
