@@ -592,7 +592,7 @@
 
           // Create the img element and set its attributes
           const imgElement = document.createElement('img');
-          imgElement.src = 'assets/images/' + id + '.jpg';
+          imgElement.src = 'assets/images/' + id + '_left_right_stereo.jpg';
           imgElement.className = 'demo-scene-panel-image';
 
           // Create the span element and set its content and class
@@ -628,15 +628,14 @@
       document.addEventListener('DOMContentLoaded', function() {
         const stereo_demo_list_left = ["swift10fps_0203", "swift10fps_0117", "swift10fps_1732", "swift10fps_11950", "swift10fps_14730", 
         "bono_0420","bono_0900", "bono_0890", "bono_11149", "bono_0215", "bono_12064"];
-        const stereo_demo_list_right = ["swift10fps_0203R", "swift10fps_0117R", "swift10fps_1732R", "swift10fps_11950R", "swift10fps_14730R",
-        "bono_0420R","bono_0900R", "bono_0890R", "bono_11149R", "bono_0215R", "bono_12064R"];
-        const stereo_video_list = ["voAS8KQ27ZE"]
+        const stereo_demo_list_inpaint = ["inpaint/swift10fps_0203", "inpaint/swift10fps_0117", "inpaint/swift10fps_1732", "inpaint/swift10fps_11950", "inpaint/swift10fps_14730", 
+        "inpaint/bono_0420","inpaint/bono_0900", "inpaint/bono_0890", "inpaint/bono_11149", "inpaint/bono_0215", "inpaint/bono_12064"];
 
         const left_dominant_root = document.getElementById("stereo_list_left");
         insertDemosIntoDOM(stereo_demo_list_left, left_dominant_root)
 
-        const right_dominant_root = document.getElementById("stereo_list_right");
-        insertDemosIntoDOM(stereo_demo_list_right, right_dominant_root)
+        const right_dominant_root = document.getElementById("stereo_list_inpaint");
+        insertDemosIntoDOM(stereo_demo_list_inpaint, right_dominant_root)
       });
 
 
@@ -688,6 +687,15 @@
       </div>
     </div>
     <div class="header-content-container">
+      <div class="title">
+        <div style="margin: auto; font-size: 14pt;">
+          Inpainted stereo scenes
+        </div>
+      </div>
+      <div style="text-align:center;" id="stereo_list_inpaint"></div>
+    </div>
+    <br>
+    <div class="header-content-container">
         <div class="title">
           <div style="margin: auto; font-size: 14pt;">
             Left Dominant stereo scenes
@@ -697,15 +705,6 @@
     </div>
     <br>
     <div class="header-content-container">
-      <div class="title">
-        <div style="margin: auto; font-size: 14pt;">
-          Right Dominant stereo scenes
-        </div>
-      </div>
-      <div style="text-align:center;" id="stereo_list_right"></div>
-  </div>
-  <br>
-  <div class="header-content-container">
       <div class="title">
         <div style="margin: auto; font-size: 14pt;">
           Splats
