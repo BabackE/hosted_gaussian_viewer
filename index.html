@@ -630,8 +630,8 @@
         "bono_0420","bono_0900", "bono_0890", "bono_11149", "bono_0215", "bono_12064"];
         const stereo_demo_list_inpaint = ["inpaint/swift10fps_0203", "inpaint/swift10fps_0117", "inpaint/swift10fps_1732", "inpaint/swift10fps_11950", "inpaint/swift10fps_14730", 
         "inpaint/bono_0420","inpaint/bono_0900", "inpaint/bono_0890", "inpaint/bono_11149", "inpaint/bono_0215", "inpaint/bono_12064"];
-        const stereo_demo_list_depthv2 = ["depthv2/swift10fps_0203", "depthv2/swift10fps_0117", "depthv2/swift10fps_1732", "depthv2/swift10fps_11950", "depthv2/swift10fps_14730", 
-        "depthv2/bono_0420","depthv2/bono_0900", "depthv2/bono_0890", "depthv2/bono_11149", "depthv2/bono_0215", "depthv2/bono_12064"];
+        const stereo_demo_list_ortho_splat = ["ortho_splat/swift10fps_0203", "ortho_splat/swift10fps_0117", "ortho_splat/swift10fps_1732", "ortho_splat/swift10fps_11950", "ortho_splat/swift10fps_14730", 
+        "ortho_splat/bono_0420","ortho_splat/bono_0900", "ortho_splat/bono_0890", "ortho_splat/bono_11149", "ortho_splat/bono_0215", "ortho_splat/bono_12064"];
 
         const left_dominant_root = document.getElementById("stereo_list_left");
         insertDemosIntoDOM(stereo_demo_list_left, left_dominant_root)
@@ -639,8 +639,8 @@
         const right_dominant_root = document.getElementById("stereo_list_inpaint");
         insertDemosIntoDOM(stereo_demo_list_inpaint, right_dominant_root)
 
-        const depthv2_root = document.getElementById("stereo_list_depthv2");
-        insertDemosIntoDOM(stereo_demo_list_depthv2, depthv2_root)
+        const ortho_splat_root = document.getElementById("stereo_list_ortho_splat");
+        insertDemosIntoDOM(stereo_demo_list_ortho_splat, ortho_splat_root)
 
       });
 
@@ -666,39 +666,10 @@
     <div class="header-content-container">
       <div class="title">
         <div style="margin: auto; font-size: 14pt;">
-          YouTube Stereo
+          Ortho Splat stereo scenes
         </div>
       </div>
-      <div style="text-align:center;" id="splat_list">
-        <div class="content-row" style="max-width: 800px; margin:auto; display:flex; align-items: center; justify-content: center;">
-          <a href="https://youtu.be/cGz3GA20gW8">
-            <div class="demo-scene-panel">
-              <img src="assets/images/bono_0215.jpg" class="demo-scene-panel-image">
-              <span class="small-title">Bono+Edge Youtube-stereo</span>
-            </div>
-          </a>
-          <a href="https://youtu.be/LABDsv4jDGw">
-            <div class="demo-scene-panel">
-              <img src="assets/images/swift10fps_0203.jpg" class="demo-scene-panel-image">
-              <span class="small-title">Taylor Youtube-stereo</span>
-            </div>
-          </a>
-          <a href="https://youtu.be/yCYm7wX_EK4">
-            <div class="demo-scene-panel">
-              <img src="assets/images/monika.JPG" class="demo-scene-panel-image">
-              <span class="small-title">Monika Youtube-stereo</span>
-            </div>
-          </a>
-        </div>            
-      </div>
-    </div>
-    <div class="header-content-container">
-      <div class="title">
-        <div style="margin: auto; font-size: 14pt;">
-          DepthAnywhereV2 stereo scenes
-        </div>
-      </div>
-      <div style="text-align:center;" id="stereo_list_depthv2"></div>
+      <div style="text-align:center;" id="stereo_list_ortho_splat"></div>
     </div>
     <div class="header-content-container">
       <div class="title">
